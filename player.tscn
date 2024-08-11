@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cog67aiwnlgcg"]
+
+[ext_resource type="Script" path="res://CharacterBody3D.cs" id="1_7td2u"]
+[ext_resource type="Script" path="res://camera.cs" id="2_kn8g6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_77xba"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_7td2u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_77xba")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+current = true
+script = ExtResource("2_kn8g6")

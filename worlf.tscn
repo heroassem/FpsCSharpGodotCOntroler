@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://4wn8i0oa3a1h"]
+
+[ext_resource type="PackedScene" uid="uid://cog67aiwnlgcg" path="res://player.tscn" id="1_dj4xk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vq5s7"]
+
+[sub_resource type="Sky" id="Sky_m656e"]
+sky_material = SubResource("ProceduralSkyMaterial_vq5s7")
+
+[sub_resource type="Environment" id="Environment_afu8j"]
+background_mode = 2
+sky = SubResource("Sky_m656e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0eoc"]
+albedo_color = Color(0, 1, 0, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.122198, 0.992506, 0, -0.992506, 0.122198, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_afu8j")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_x0eoc")
+use_collision = true
+size = Vector3(5.00806, 0.1604, 7.38379)
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_dj4xk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.098623, 1.08321, 1.1654)
+speed = 100.0
+jump = 500.0
+gravity = 0.2
+moise_speed = 0.09
